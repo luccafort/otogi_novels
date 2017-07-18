@@ -1,6 +1,6 @@
 class CreateNovels < ActiveRecord::Migration[5.1]
   def change
-    create_table :novels do |t|
+    create_table :novels, :options => 'ENGINE=InnoDB DEFAULT CHARSET=utf8' do |t|
       t.string :title
       t.string :author
       t.datetime :created_at

@@ -2,6 +2,8 @@ version: '2'
 services:
   db:
     image: mysql:5.7
+    volumes:
+      - ./data:/var/lib/mysql
     environment:
       MYSQL_DATABASE: otogi_novels_development
       MYSQL_USER: otogi_novels

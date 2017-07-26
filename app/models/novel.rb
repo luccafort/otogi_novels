@@ -1,2 +1,2 @@
-class Novel < ApplicationRecord
+class Novel < ActiveRecord::Base
 end

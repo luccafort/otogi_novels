@@ -2,6 +2,7 @@ version: '2'
 services:
   db:
     image: mysql:5.7
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
     volumes:
       - ./data:/var/lib/mysql
     environment:

@@ -6,6 +6,7 @@ class NovelsController < ApplicationController
 
   def show
     # 選択されたNovels詳細表示
+    @novel = Novel.find(params[:id])
   end
 
   def new

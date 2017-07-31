@@ -1,0 +1,11 @@
+<h1>新しい小説の投稿</h1>
+
+<%= form_for :novels, url: novels_path do |f| %>
+<p>
+  <%= f.label :title, "タイトル" %><br>
+  <%= f.text_field :title %><br>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>

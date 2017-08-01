@@ -1,0 +1,20 @@
+h1
+  | トップページだよ
+p
+  | 小説一覧
+table
+  tr
+    th
+      | タイトル
+    th
+      | 作成日
+    th
+      | 更新日
+  - @novels.each do |novel|
+    tr
+      td
+        = novel.title
+      td
+        = novel.created_at.to_s(:published_on)
+      td
+        = novel.updated_at.to_s(:published_on)

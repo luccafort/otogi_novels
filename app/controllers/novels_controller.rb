@@ -1,7 +1,7 @@
 class NovelsController < ApplicationController
   def index
     # Novelsの一覧表示
-
+    @novels = Novel.all
   end
 
   def show

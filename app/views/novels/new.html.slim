@@ -1,6 +1,12 @@
 h1
   | 新しい小説の投稿
 = form_for :novels, url: novels_path do |f|
+  - if @novel.errors.any?
+    #error_explanation
+      h2 #{@novel.errors.count}件のエラーが発生したため保存ができませんでした。
+    ul
+      = @novel.errors.full_messages.each do |msg|
+        li = msg
   p
     = f.label :title, "タイトル"
     br

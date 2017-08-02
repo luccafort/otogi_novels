@@ -11,12 +11,16 @@ class NovelsController < ApplicationController
 
   def new
     # Novels新規作成
+    @novel = Novel.new
   end
 
   def create
     @novel = Novel.new(post_params)
-    @novel.save
-    redirect_to @novel
+    if @novel.save
+      redirect_to @novel
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit

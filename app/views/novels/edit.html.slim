@@ -1,4 +1,17 @@
 h1
-  | Novels#edit
-p
-  | Find me in app/views/novels/edit.html.erb
+  | 投稿を更新
+= form_for :novel, url: novels_path, method: :patch do |f|
+  - if @novel.errors.any?
+    #error_explanation
+      h2 #{@novel.errors.count}件のエラーが発生したため保存ができませんでした。
+      ul
+        = @novel.errors.full_messages.each do |msg|
+          li = msg
+  p
+    = f.label :text, "タイトル"
+    = f.text_field :title, col: 60, row: 2
+
+  p
+    = f.submit '編集'
+
+= link_to '戻る', novels_path

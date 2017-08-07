@@ -26,6 +26,7 @@ class NovelsController < ApplicationController
 
   def edit
     # Novels更新
+    @novel = Novel.find(params[:id])
   end
 
   def update

@@ -31,6 +31,12 @@ class NovelsController < ApplicationController
 
   def update
     # Novels更新
+    @novel = Novel.find(params[:id])
+    if @novel.update(post_params)
+      redirect_to @novel
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy

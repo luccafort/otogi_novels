@@ -10,6 +10,7 @@ table
       | 作成日
     th
       | 更新日
+    th
   - @novels.each do |novel|
     tr
       td
@@ -18,4 +19,6 @@ table
         = novel.created_at.to_s(:published_on)
       td
         = novel.updated_at.to_s(:published_on)
+      td
+        = link_to '編集する', edit_novel_path(novel)
 = link_to '新しい小説を投稿する', new_novel_path

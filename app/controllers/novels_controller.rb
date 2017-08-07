@@ -19,6 +19,7 @@ class NovelsController < ApplicationController
     if @novel.save
       redirect_to @novel
     else
+      # newメソッドをHTTP Code422で表示
       render :new, status: :unprocessable_entity
     end
   end

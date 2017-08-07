@@ -1,6 +1,6 @@
 h1
   | 投稿を更新
-= form_for :novel, url: novels_path, method: :patch do |f|
+= form_for @novel, url: novel_path(@novel), method: :patch do |f|
   - if @novel.errors.any?
     #error_explanation
       h2 #{@novel.errors.count}件のエラーが発生したため保存ができませんでした。

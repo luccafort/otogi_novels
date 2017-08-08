@@ -21,4 +21,6 @@ table
         = novel.updated_at.to_s(:published_on)
       td
         = link_to '編集する', edit_novel_path(novel)
+      td
+        = link_to '削除する', novel_path(novel), method: :delete, data: {confirm: "削除しますか？"}
 = link_to '新しい小説を投稿する', new_novel_path

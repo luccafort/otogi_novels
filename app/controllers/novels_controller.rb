@@ -40,7 +40,12 @@ class NovelsController < ApplicationController
   end
 
   def destroy
-    # Novels削除(論理削除)
+    # TODO: Novels削除(論理削除)
+    @novel = Novel.find(params[:id])
+    @novel.destroy
+
+    # 削除後リダイレクト
+    redirect_to novels_path
   end
 
   # 必要な値のみを取得

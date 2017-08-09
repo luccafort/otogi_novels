@@ -1,5 +1,19 @@
-h1
-  | Novels#show
 p
-  | Find me in app/views/novels/show.html.erb
-= @novel.title
+  strong
+    | タイトル:
+  = @novel.title
+h2
+  | コンテンツ追加
+= form_for @novel @novel.content.build do |f|
+  p
+    = f.label :author, "著者"
+    = f.text_field :author
+
+  p
+    = f.label :body, "本文"
+    = f.text_area :body, cols: 60, rows: 8
+  p
+    = f.submit, "本文を投稿する"
+
+= link_to "戻る", posts_path
+= link_to "編集", edit_authors_novels_path(@novel)

@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  resources :authors do
-    resources :novels do
-      resources :contents
-    end
+  resources :novels do
+    resources :contents
   end
 
   root 'welcome#index'

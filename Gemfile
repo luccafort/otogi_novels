@@ -39,6 +39,13 @@ gem 'twitter-bootstrap-rails', '~> 4.0'
 
 gem 'slim-rails', '~> 3.0'
 
+# Oauth2
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

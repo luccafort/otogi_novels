@@ -1,0 +1,25 @@
+production: &production
+  facebook:
+    key: FACEBOOK_KEY_PRODUCTION
+    secret: FACEBOOK_SECRET_PRODUCTION
+  google:
+    key: GOOGLE_KEY_PRODUCTION
+    secret: GOOGLE_SECRET_PRODUCTION
+  twitter:
+    key: TWITTER_KEY_PRODUCTION
+    secret: TWITTER_SECRET_PRODUCTION
+
+development: &development
+  <<: *production
+  facebook:
+    key: FACEBOOK_KEY_DEVELOPMENT
+    secret: FACEBOOK_SECRET_DEVELOPMENT
+  google:
+    key: GOOGLE_KEY_DEVELOPMENT
+    secret: GOOGLE_SECRET_DEVELOPMENT
+  twitter:
+    key: TWITTER_KEY_DEVELOPMENT
+    secret: TWITTER_SECRET_DEVELOPMENT
+
+test:
+  <<: *development

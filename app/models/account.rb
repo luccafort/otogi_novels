@@ -2,8 +2,8 @@ class Account < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-  attr_accessible :name, :password, :uid, :provider
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable
 
   def self.new_with_session(params, session)
     super.tap do |account|
@@ -40,5 +40,10 @@ class Account < ApplicationRecord
       )
     end
     account
+  end
+
+  private
+  def account_params
+    params.require(:account).permit(:name, :password, :uid, :provider)
   end
 end

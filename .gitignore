@@ -20,6 +20,6 @@
 
 .byebug_history
 
-# 環境変数はProductionのみ非公開設定、他はgitで管理して問題ないという認識
-.env.production
-.env
+# .envファイルはサンプル以外は全てignore対象
+.env.*
+!.env.sample

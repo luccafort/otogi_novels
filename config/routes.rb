@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :accounts, :controllers => { :omniauth_callbacks => "accounts/omniauth_callbacks" }
+  devise_for :accounts, controllers: {
+      omniauth_callbacks: "accounts/omniauth_callbacks",
+      session: 'accounts/session'
+  }
 
   devise_scope :account do
     get 'sign_in', :to => 'devise/session#new'

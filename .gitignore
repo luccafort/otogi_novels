@@ -22,4 +22,4 @@
 
 # .envファイルはサンプル以外は全てignore対象
 .env.*
-!.env.sample
+!/.env.sample

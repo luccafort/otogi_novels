@@ -6,4 +6,9 @@ class Account < ApplicationRecord
          :omniauthable
   validates :name, presence: true, length: {maximum: 15},
             format: { with: /\A[a-z0-9-]+\z/i, message: "is must NOT contain any other characters than alphanumerics." }
+
+  def self.find_omniauth(auth)
+    Account.where(provider: auth.provider, uid: auth.uid).first
+  end
+
 end

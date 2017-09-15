@@ -1,25 +1,25 @@
 production: &production
   facebook:
-    key: <%= ENV['FACEBOOK_KEY_PRODUCTION'] %>
-    secret: <%= ENV['FACEBOOK_SECRET_PRODUCTION'] %>
+    key: <%= ENV['FACEBOOK_KEY'] %>
+    secret: <%= ENV['FACEBOOK_SECRET'] %>
   google:
-    key: <%= ENV['GOOGLE_KEY_PRODUCTION'] %>
-    secret: <%= ENV['GOOGLE_SECRET_PRODUCTION'] %>
+    key: <%= ENV['GOOGLE_KEY'] %>
+    secret: <%= ENV['GOOGLE_SECRET'] %>
   twitter:
-    key: <%= ENV['TWITTER_KEY_PRODUCTION'] %>
-    secret: <%= ENV['TWITTER_SECRET_PRODUCTION'] %>
+    key: <%= ENV['TWITTER_KEY'] %>
+    secret: <%= ENV['TWITTER_SECRET'] %>
 
 development: &development
   <<: *production
   facebook:
-    key: <%= ENV['FACEBOOK_KEY_DEVELOPMENT'] %>
-    secret: <%= ENV['FACEBOOK_SECRET_DEVELOPMENT'] %>
+    key: <%= ENV['FACEBOOK_KEY'] %>
+    secret: <%= ENV['FACEBOOK_SECRET'] %>
   google:
-    key: <%= ENV['GOOGLE_KEY_DEVELOPMENT'] %>
-    secret: <%= ENV['GOOGLE_SECRET_DEVELOPMENT'] %>
+    key: <%= ENV['GOOGLE_KEY'] %>
+    secret: <%= ENV['GOOGLE_SECRET'] %>
   twitter:
-    key: <%= ENV['TWITTER_KEY_DEVELOPMENT'] %>
-    secret: <%= ENV['TWITTER_SECRET_DEVELOPMENT'] %>
+    key: <%= ENV['TWITTER_KEY'] %>
+    secret: <%= ENV['TWITTER_SECRET'] %>
 
 test:
   <<: *development

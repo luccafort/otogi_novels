@@ -5,6 +5,39 @@ class Accounts::OmniauthCallbacksController < Devise::OmniauthCallbacksControlle
   # You should also create an action method in this controller like this:
   # def twitter
   # end
+  def twitter
+    # ユーザ登録まで自動的に実施せず、ユーザ検索のみ実施するように変更
+    # メソッドはuser.rb側で定義します。
+    @account = Account.find_omniauth(request.env["omniauth.auth"])
+
+    if @account.presits?
+      sign_in_and_redirect @account
+      set_flash_message(:notice, :success, :kind => "Twitter") if is_navigational_format?
+    else
+      # Twitterから取得した情報をsessionに格納
+      session["devise.twitter_data"] = request.env["omniauth.auth"]
+      # 新規ユーザの場合、`ユーザ名`登録用のテンプレートをrender
+      @account = Account.new()
+      render 'devise/registrations/after_omniauth_signup'
+    end
+  end
+
+  def facebook
+    # ユーザ登録まで自動的に実施せず、ユーザ検索のみ実施するように変更
+    # メソッドはuser.rb側で定義します。
+    @account = Account.find_omniauth(request.env["omniauth.auth"])
+
+    if @account.presists?
+      sign_in_and_redirect @account
+      set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
+    else
+      # Facebookから取得した情報をsessionに格納
+      session["devise.facebook_data"] = request.env["omniauth.auth"]
+      # 新規ユーザの場合、`ユーザ名`登録用のテンプレートをrender
+      @account = Account.new()
+      render 'devise/registrations/after_omniauth_signup'
+    end
+  end
 
   # More info at:
   # https://github.com/plataformatec/devise#omniauth
@@ -18,6 +51,9 @@ class Accounts::OmniauthCallbacksController < Devise::OmniauthCallbacksControlle
   # def failure
   #   super
   # end
+  def failure
+    redirect_to root_path
+  end
 
   # protected
 

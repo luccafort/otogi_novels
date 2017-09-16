@@ -21,5 +21,5 @@
 .byebug_history
 
 # .envファイルはサンプル以外は全てignore対象
-.env.*
+.env*
 !/.env.sample

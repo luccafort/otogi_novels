@@ -70,6 +70,9 @@ GEM
       responders
       warden (~> 1.2.3)
     dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
     erubi (1.6.1)
     execjs (2.7.0)
     faraday (0.12.2)
@@ -253,7 +256,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   devise
-  dotenv
+  dotenv-rails
   html2slim
   jbuilder (~> 2.5)
   jquery-rails (~> 4.3)

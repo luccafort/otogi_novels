@@ -46,10 +46,10 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
-# .env から環境変数を読み込み
-gem 'dotenv'
+# .envファイルを読み込むのに必要
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 
-# erb→slimに変換するGem
+# erbコンバーター
 gem 'html2slim'
 
 group :development, :test do

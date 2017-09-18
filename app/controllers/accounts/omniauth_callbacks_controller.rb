@@ -18,7 +18,7 @@ class Accounts::OmniauthCallbacksController < Devise::OmniauthCallbacksControlle
       session["devise.twitter_data"] = request.env["omniauth.auth"]
       # 新規ユーザの場合、`ユーザ名`登録用のテンプレートをrender
       @account = Account.new()
-      render 'devise/registrations/after_omniauth_signup'
+      render 'devise/registrations/new'
     end
   end
 
@@ -35,7 +35,7 @@ class Accounts::OmniauthCallbacksController < Devise::OmniauthCallbacksControlle
       session["devise.facebook_data"] = request.env["omniauth.auth"]
       # 新規ユーザの場合、`ユーザ名`登録用のテンプレートをrender
       @account = Account.new()
-      render 'devise/registrations/after_omniauth_signup'
+      render 'devise/registrations/new'
     end
   end
 

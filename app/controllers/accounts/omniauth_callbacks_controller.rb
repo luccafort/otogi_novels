@@ -10,7 +10,8 @@ class Accounts::OmniauthCallbacksController < Devise::OmniauthCallbacksControlle
     # メソッドはuser.rb側で定義します。
     @account = Account.find_omniauth(request.env["omniauth.auth"])
 
-    if @account.presits?
+    # persisted?メソッドで参照できるはずだが現在エラーになる、調査のため一時的にif文条件を変更
+    if @account
       sign_in_and_redirect @account
       set_flash_message(:notice, :success, :kind => "Twitter") if is_navigational_format?
     else
@@ -27,7 +28,8 @@ class Accounts::OmniauthCallbacksController < Devise::OmniauthCallbacksControlle
     # メソッドはuser.rb側で定義します。
     @account = Account.find_omniauth(request.env["omniauth.auth"])
 
-    if @account.presists?
+    # persisted?メソッドで参照できるはずだが現在エラーになる、調査のため一時的にif文条件を変更
+    if @account
       sign_in_and_redirect @account
       set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
     else

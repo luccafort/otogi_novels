@@ -16,7 +16,7 @@ class Accounts::OmniauthCallbacksController < Devise::OmniauthCallbacksControlle
       set_flash_message(:notice, :success, :kind => "Twitter") if is_navigational_format?
     else
       # Twitterから取得した情報をsessionに格納
-      session["devise.twitter_data"] = request.env["omniauth.auth"]
+      session["devise.twitter_data"] = request.env["omniauth.auth"].except("extra")
       # 新規ユーザの場合、`ユーザ名`登録用のテンプレートをrender
       @account = Account.new()
       render 'devise/registrations/new'

@@ -35,8 +35,10 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'jquery-rails', '~> 4.3'
 
-gem 'twitter-bootstrap-rails', '~> 4.0'
+# bootstrap-sassを導入
+gem 'bootstrap-sass', '~> 3.3.6'
 
+# slimを導入
 gem 'slim-rails', '~> 3.0'
 
 # Oauth2

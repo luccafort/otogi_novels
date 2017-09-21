@@ -1,6 +1,8 @@
 h1
   | Welcome to おとぎNovels！
 p = link_to '小説を投稿する', new_novel_path
-p = link_to 'ログイン', authors_path
-p = link_to 'twitterでログイン', account_twitter_omniauth_authorize_path
-p = link_to 'facebookでログイン', account_facebook_omniauth_authorize_path
+- if account_signed_in?
+  p = link_to 'ログアウト', destroy_account_session_path, method: :delete
+- else
+  p = link_to 'twitterでログイン', account_twitter_omniauth_authorize_path
+  p = link_to 'facebookでログイン', account_facebook_omniauth_authorize_path

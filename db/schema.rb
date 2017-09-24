@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170906152541) do
+ActiveRecord::Schema.define(version: 20170924134447) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string "email", default: "", null: false
@@ -65,10 +65,7 @@ ActiveRecord::Schema.define(version: 20170906152541) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "author_id"
-    t.index ["author_id"], name: "index_novels_on_author_id"
   end
 
   add_foreign_key "contents", "novels"
-  add_foreign_key "novels", "authors"
 end

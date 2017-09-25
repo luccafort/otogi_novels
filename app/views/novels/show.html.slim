@@ -4,16 +4,13 @@ p
   = @novel.title
 h2
   | コンテンツ追加
-= form_for @novel @novel.content.build do |f|
+= form_for @novel do |f|
   p
-    = f.label :author, "著者"
-    = f.text_field :author
+    = f.label :title, "本文"
+    = f.text_area :title, cols: 60, rows: 8
+  p
+    = f.submit "本文を投稿する"
 
-  p
-    = f.label :body, "本文"
-    = f.text_area :body, cols: 60, rows: 8
-  p
-    = f.submit, "本文を投稿する"
-
-= link_to "戻る", posts_path
-= link_to "編集", edit_authors_novels_path(@novel)
+= link_to "戻る", novels_path
+br
+= link_to "編集", edit_novel_path(@novel)

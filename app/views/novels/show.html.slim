@@ -2,14 +2,16 @@ p
   strong
     | タイトル:
   = @novel.title
-h2
+h3
   | コンテンツ追加
 = form_for @novel do |f|
-  p
-    = f.label :title, "本文"
-    = f.text_area :title, cols: 60, rows: 8
-  p
-    = f.submit "本文を投稿する"
+  div.form-group
+    p
+      = f.label :title, "本文:"
+    p.form-control
+      = f.text_area :title, cols: 80, rows: 8
+    p.submit
+      = f.button "本文を投稿する"
 
 = link_to "戻る", novels_path
 br

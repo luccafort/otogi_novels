@@ -51,6 +51,6 @@ class NovelsController < ApplicationController
   # 必要な値のみを取得
   private
     def post_params
-      params.require(:novels).permit(:title)
+      params.require(:novel).permit(:title)
     end
 end

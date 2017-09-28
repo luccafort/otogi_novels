@@ -9,11 +9,11 @@ h3
   = form_for @novel, html: {class: "form-horizontal"} do |f|
     .form-group
       p
-        = f.label :title, "本文:"
+        = f.label :title, "タイトル:"
       .form-control
-        = f.text_area :title, cols: 80, rows: 8
-      = f.button "本文を投稿する", class: "btn btn-default"
+        = f.text_field :title, style: "width: 50%;height: 1.5rem;"
+      = f.button "タイトルを更新", class: "btn btn-default"
 
-  = link_to "戻る", novels_path,  class: "btn"
+  = link_to "戻る", novels_path, class: "btn"
   br
   = link_to "編集", edit_novel_path(@novel), class: "btn"

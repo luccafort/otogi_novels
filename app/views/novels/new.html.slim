@@ -1,18 +1,15 @@
 h1
   | 新しい小説の投稿
 .container
-= form_for :novel, url: novels_path do |f|
-  - if @novel.errors.any?
-    #error_explanation
-      h2 #{@novel.errors.count}件のエラーが発生したため保存ができませんでした。
-    ul
-      = @novel.errors.full_messages.each do |msg|
-        li = msg
-  .form-control
-    p
+  = form_for :novel, url: novels_path do |f|
+    - if @novel.errors.any?
+      #error_explanation
+        h2 #{@novel.errors.count}件のエラーが発生したため保存ができませんでした。
+      ul
+        = @novel.errors.full_messages.each do |msg|
+          li = msg
+    .form-control style="width:60%;padding:4px;"
       = f.label :title, "タイトル"
-    .form-control
-      = f.text_field :title, style: "width: 50%;height: 1.5rem;"
+      = f.text_field :title, style: "width: 60%;"
     = f.button "タイトルを投稿", class: "btn btn-default"
-
-= link_to '戻る', novels_path, class: "btn"
+  = link_to '戻る', novels_path, class: "btn"

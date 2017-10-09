@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170924134447) do
+ActiveRecord::Schema.define(version: 20171009123244) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string "email", default: "", null: false
@@ -43,14 +43,13 @@ ActiveRecord::Schema.define(version: 20170924134447) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "content_histories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "content_id"
-    t.text "content_diff"
+  create_table "novels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "contents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "stories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "group_id"
     t.text "content"
     t.integer "group_position"
@@ -58,14 +57,15 @@ ActiveRecord::Schema.define(version: 20170924134447) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "novel_id"
-    t.index ["novel_id"], name: "index_contents_on_novel_id"
+    t.index ["novel_id"], name: "index_stories_on_novel_id"
   end
 
-  create_table "novels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "title"
+  create_table "story_histories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "content_id"
+    t.text "content_diff"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "contents", "novels"
+  add_foreign_key "stories", "novels"
 end

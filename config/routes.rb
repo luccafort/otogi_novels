@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :novels do
-    resources :contents
+    resources :stories
   end
 
   resources :authors

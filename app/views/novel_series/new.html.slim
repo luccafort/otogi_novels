@@ -1,7 +1,7 @@
 h1
   | ストーリーの新規登録
 .container
-  = form_for :novel_series, url: new_novel_series_path do |f|
+  = form_for :novel_series, url: novel_series_index_path do |f|
     - if @novel_series.errors.any?
       #error_explanation
         h2 #{@novel_series.errors.count}件のエラーが発生したため保存ができませんでした。

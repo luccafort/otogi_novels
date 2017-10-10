@@ -4,8 +4,7 @@ class StoriesController < ApplicationController
     @novel_series = NovelSeries.find(params[:novel_id])
     @story = @novel_series.story.create(get_story_params)
 
-    # TODO:パスの指定がおかしい正しくはnovel_series_path
-    redirect_to novel_path($novel)
+    redirect_to novel_series_path($novel)
   end
 
   private

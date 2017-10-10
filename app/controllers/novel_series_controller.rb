@@ -45,7 +45,7 @@ class NovelSeriesController < ApplicationController
     @novel_series.destroy
 
     # 削除後リダイレクト
-    redirect_to novels_path
+    redirect_to novel_series_path
   end
 
   # 必要な値のみを取得

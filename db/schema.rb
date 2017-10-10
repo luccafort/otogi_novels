@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171010133711) do
+ActiveRecord::Schema.define(version: 20171010151744) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string "email", default: "", null: false
@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(version: 20171010133711) do
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "novel_id"
-    t.index ["novel_id"], name: "index_stories_on_novel_id"
+    t.bigint "novel_series_id"
+    t.index ["novel_series_id"], name: "index_stories_on_novel_series_id"
   end
 
   create_table "story_histories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -72,5 +72,5 @@ ActiveRecord::Schema.define(version: 20171010133711) do
   end
 
   add_foreign_key "novel_series", "stories", column: "stories_id"
-  add_foreign_key "stories", "novel_series", column: "novel_id"
+  add_foreign_key "stories", "novel_series"
 end

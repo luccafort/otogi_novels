@@ -1,15 +1,15 @@
 h1
-  | 新しい小説の投稿
+  | ストーリーの新規登録
 .container
-  = form_for :novel, url: novels_path do |f|
-    - if @novel.errors.any?
+  = form_for :novel_series, url: new_novel_series_path do |f|
+    - if @novel_series.errors.any?
       #error_explanation
-        h2 #{@novel.errors.count}件のエラーが発生したため保存ができませんでした。
+        h2 #{@novel_series.errors.count}件のエラーが発生したため保存ができませんでした。
       ul
-        = @novel.errors.full_messages.each do |msg|
+        = @novel_series.errors.full_messages.each do |msg|
           li = msg
     .form-control style="width:60%;padding:4px;"
-      = f.label :title, "タイトル"
+      = f.label :title, "ストーリー名"
       = f.text_field :title, style: "width: 60%;"
-    = f.button "タイトルを投稿", class: "btn btn-default"
-  = link_to '戻る', novels_path, class: "btn"
+    = f.button "新規登録", class: "btn btn-default"
+  = link_to '戻る', novel_series_index_path, class: "btn"

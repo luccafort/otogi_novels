@@ -1,12 +1,12 @@
 p
   strong
     | タイトル:
-  = @novel.title
+  = @novel_series.title
 h3
   | コンテンツ追加
 
 .container
-  = form_for @novel, html: {class: "form-horizontal"} do |f|
+  = form_for @novel_series, html: {class: "form-horizontal"} do |f|
     .form-group
       p
         = f.label :title, "タイトル:"
@@ -14,6 +14,6 @@ h3
         = f.text_field :title, style: "width: 50%;height: 1.5rem;"
       = f.button "タイトルを更新", class: "btn btn-default"
 
-  = link_to "戻る", novels_path, class: "btn"
+  = link_to "戻る", novel_series_index_path, class: "btn"
   br
-  = link_to "編集", edit_novel_path(@novel), class: "btn"
+  = link_to "編集", edit_novel_series_path(@novel_series), class: "btn"

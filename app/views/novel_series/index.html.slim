@@ -11,7 +11,7 @@ table
     th
       | 更新日
     th
-  - @novels.each do |novel|
+  - @novel_series.each do |novel|
     tr
       td
         = novel.title
@@ -20,7 +20,7 @@ table
       td
         = novel.updated_at.to_s(:published_on)
       td
-        = link_to '編集する', edit_novel_path(novel)
+        = link_to '編集する', edit_novel_series_path(novel)
       td
-        = link_to '削除する', novel_path(novel), method: :delete, data: {confirm: "削除しますか？"}
-= link_to '新しい小説を投稿する', new_novel_path
+        = link_to '削除する', novel_series_index_path(novel), method: :delete, data: {confirm: "削除しますか？"}
+= link_to '新しい小説を投稿する', new_novel_series_path

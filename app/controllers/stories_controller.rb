@@ -1,7 +1,7 @@
 class StoriesController < ApplicationController
   # POST /novels/:novel_id/stories
   def create
-    @novel = Novel.find(params[:novel_id])
+    @novelSeries = NovelSeries.find(params[:novel_id])
     @story = @novel.stories.create(get_story_params)
 
     redirect_to novel_path($novel)

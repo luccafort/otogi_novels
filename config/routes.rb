@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get 'sign_out', :to => 'devise/session#destroy'
   end
 
-  resources :novels do
+  resources :novel_series do
     resources :stories
   end
 

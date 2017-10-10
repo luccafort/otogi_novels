@@ -1,21 +1,21 @@
-class NovelsController < ApplicationController
+class NovelSeriesController < ApplicationController
   def index
     # Novelsの一覧表示
-    @novels = Novel.all
+    @novels = NovelSeries.all
   end
 
   def show
     # 選択されたNovels詳細表示
-    @novel = Novel.find(params[:id])
+    @novel = NovelSeries.find(params[:id])
   end
 
   def new
     # Novels新規作成
-    @novel = Novel.new
+    @novel = NovelSeries.new
   end
 
   def create
-    @novel = Novel.new(post_params)
+    @novel = NovelSeries.new(post_params)
     if @novel.save
       redirect_to @novel
     else
@@ -26,12 +26,12 @@ class NovelsController < ApplicationController
 
   def edit
     # Novels更新
-    @novel = Novel.find(params[:id])
+    @novel = NovelSeries.find(params[:id])
   end
 
   def update
     # Novels更新
-    @novel = Novel.find(params[:id])
+    @novel = NovelSeries.find(params[:id])
     if @novel.update(post_params)
       redirect_to @novel
     else
@@ -41,7 +41,7 @@ class NovelsController < ApplicationController
 
   def destroy
     # TODO: Novels削除(論理削除)
-    @novel = Novel.find(params[:id])
+    @novel = NovelSeries.find(params[:id])
     @novel.destroy
 
     # 削除後リダイレクト

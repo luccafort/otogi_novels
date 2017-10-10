@@ -1,0 +1,2 @@
+module NovelSeriesHelper
+end

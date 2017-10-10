@@ -45,7 +45,7 @@ class NovelSeriesController < ApplicationController
     @novel_series.destroy
 
     # 削除後リダイレクト
-    redirect_to novel_series_path
+    redirect_to :action => 'index'
   end
 
   # 必要な値のみを取得

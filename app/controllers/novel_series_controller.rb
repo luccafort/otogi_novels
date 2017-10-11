@@ -15,7 +15,7 @@ class NovelSeriesController < ApplicationController
   end
 
   def create
-    @novel_series = NovelSeries.new(post_params)
+    @novel_series = NovelSeries.new(novel_series_params)
     if @novel_series.save
       redirect_to @novel_series
     else
@@ -32,7 +32,7 @@ class NovelSeriesController < ApplicationController
   def update
     # Novels更新
     @novel_series = NovelSeries.find(params[:id])
-    if @novel_series.update(post_params)
+    if @novel_series.update(novel_series_params)
       redirect_to @novel_series
     else
       render :edit, status: :unprocessable_entity
@@ -50,7 +50,7 @@ class NovelSeriesController < ApplicationController
 
   # 必要な値のみを取得
   private
-    def post_params
-      params.require(:novel_series).permit(:title)
+    def novel_series_params
+      params.require(:novel_series).permit(:title, :summary)
     end
 end

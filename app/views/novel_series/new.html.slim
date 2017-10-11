@@ -8,8 +8,11 @@ h1
       ul
         = @novel_series.errors.full_messages.each do |msg|
           li = msg
-    .form-control style="width:60%;padding:4px;"
-      = f.label :title, "ストーリー名"
-      = f.text_field :title, style: "width: 60%;"
-    = f.button "新規登録", class: "btn btn-default"
-  = link_to '戻る', novel_series_index_path, class: "btn"
+    .form-control style='width:60%;padding:4px;margin: 4px;'
+      = f.label :title, 'ストーリー名', style: 'margin-right: 4px;'
+      = f.text_field :title, style: 'width: 60%;'
+    .form-control style='width:60%;height:120%;padding:4px;margin: 4px;'
+      = f.label :summary, 'あらすじ', style: 'margin-right: 4px;'
+      = f.text_area :summary, style: 'width: 60%'
+    = f.button '新規登録', class: 'btn btn-default', style: 'margin: 4px;'
+  = link_to '戻る', novel_series_index_path, class: 'btn btn-default'

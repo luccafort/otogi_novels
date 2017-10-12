@@ -1,0 +1,18 @@
+h1
+  = @noevl_series.title
+table
+  tr
+    th
+      | 小説シリーズ
+    th
+      | 作成日
+    th
+  - @stories.each do |story|
+    tr style="background-color:#{cycle('#ffffff', '#e0dede')}"
+      td
+        = link_to story.title, novel_series_stories_path
+      td
+        = story.created_at.to_s(:published_on)
+      td
+        = story.updated_at.to_s(:published_on)
+= link_to '新しい小説を投稿する', new_novel_series_path

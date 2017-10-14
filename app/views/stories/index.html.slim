@@ -1,13 +1,16 @@
 h1
-  = @noevl_series.title
+  - @novel_series.title
 table
   tr
     th
       | 小説シリーズ
     th
-      | 作成日
+      | あらすじ
+    - @novel_series.summary
     th
-  - @stories.each do |story|
+      | 投稿日
+    - @novel_series.created_at
+  - @novel_series.stories.each do |story|
     tr style="background-color:#{cycle('#ffffff', '#e0dede')}"
       td
         = link_to story.title, novel_series_stories_path

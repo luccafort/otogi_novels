@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :novel_series do
-    resources :stories
+    resources :stories, shallow: true
   end
 
   resources :authors

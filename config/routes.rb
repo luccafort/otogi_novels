@@ -9,8 +9,10 @@ Rails.application.routes.draw do
     get 'sign_out', :to => 'devise/session#destroy'
   end
 
-  resources :novel_series do
-    resources :stories, shallow: true
+  constraints(novel_series_id: /[0-9]+/) do
+    resources :novel_series do
+      resources :stories, shallow: true
+    end
   end
 
   resources :authors

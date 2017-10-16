@@ -1,0 +1,24 @@
+h1
+  | ストーリーの新規登録
+.container
+  = form_for :story, url: novel_series_stories_path do |f|
+    - if @story.errors.any?
+      #error_explanation
+        h2 #{@story.errors.count}件のエラーが発生したため保存ができませんでした。
+      ul
+        = @story.errors.full_messages.each do |msg|
+          li = msg
+    .form-control style='width:60%;height:120%;padding:4px;margin: 4px;'
+      = f.label :prologue, 'まえがき', style: 'margin-right: 4px;'
+      = f.text_field :prologue, style: 'width: 60%'
+      br
+      = f.label :title, 'ストーリータイトル', style: 'margin-right: 4px;'
+      = f.text_field :title, style: 'width: 60%;'
+      br
+      = f.label :content, 'ストーリー', style: 'margin-right: 4px;'
+      = f.text_area :content, style: 'width: 60%;'
+      br
+      = f.label :epilogue, 'あとがき', style: 'margin-right: 4px;'
+      = f.text_field :epilogue, style: 'width: 60%'
+    = f.button '新規登録', class: 'btn btn-default', style: 'margin: 4px;'
+  = link_to '戻る', novel_series_index_path, class: 'btn btn-default'

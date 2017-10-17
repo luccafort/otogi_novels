@@ -16,10 +16,15 @@ class StoriesController < ApplicationController
 
   # POST /novels/:novel_id/stories
   def create
-    @novel_series = NovelSeries.find(params[:novel_series_id])
-    @story = @novel_series.story.create(get_story_params)
+    @story = Story.create(get_story_params)
+    if @story.save
+      redirect_to story_path @story
+    else
+      # newメソッドをHTTP Code 422で表示
+      render :new, status: :unprocessable_entity
+    end
 
-    redirect_to novel_series_path($novel)
+
   end
 
   def edit
@@ -46,6 +51,6 @@ class StoriesController < ApplicationController
 
   private
     def get_story_params
-      params.require(:story).permit(:title, :content, :prolugue, :epilogue)
+      params.require(:story).permit(:title, :content, :prolugue, :epilogue, novel_series_attributes: [:novel_series_id])
     end
 end

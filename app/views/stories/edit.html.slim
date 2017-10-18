@@ -1,0 +1,23 @@
+h1
+  | ストーリー編集
+= form_for :story, url: story_path(@story), method: :patch do |f|
+  - if @story.errors.any?
+    #error_explanation
+      h2 #{@story.errors.count}件のエラーが発生したため保存ができませんでした。
+      ul
+        = @story.errors.full_messages.each do |msg|
+          li = msg
+  .form-control style='width:60%;height:120%;padding:4px;margin: 4px;'
+    p
+      | まえがき:
+      = f.text_field :prologue, col: 60, row: 2
+    p
+      | 本文:
+      = f.text_area :content
+    p
+      | あとがき:
+      = f.text_field :epilogue
+    p
+      = f.submit '編集'
+
+= link_to '戻る', story_path(@story)

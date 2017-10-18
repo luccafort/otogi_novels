@@ -31,7 +31,7 @@ class StoriesController < ApplicationController
 
   def edit
     # 更新対象取得
-    @story = Story.find(parans[:id])
+    @story = Story.find(params[:id])
   end
 
   def update

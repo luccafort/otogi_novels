@@ -5,9 +5,10 @@ class StoriesController < ApplicationController
   end
 
   def show
-    # TODO:親であるところのnovel_seriesも取得する必要あり
-    # TODO:novel_seriesから著者名を取得する必要あり
     @story = Story.find(params[:id])
+    # TODO:novel_seriesから著者名を取得する必要あり
+    # TODO:SQLを2度発行する必要があるのかどうか調べたほうがいいかも
+    @novel_series = NovelSeries.find(@story.novel_series_id)
   end
 
   def new
@@ -16,7 +17,8 @@ class StoriesController < ApplicationController
 
   # POST /novels/:novel_id/stories
   def create
-    @story = Story.create(get_story_params)
+    @novel_series = NovelSeries.find(params[:novel_series_id])
+    @story = @novel_series.stories.create(get_story_params)
     if @story.save
       redirect_to story_path @story
     else
@@ -51,6 +53,6 @@ class StoriesController < ApplicationController
 
   private
     def get_story_params
-      params.require(:story).permit(:title, :content, :prolugue, :epilogue, novel_series_attributes: [:novel_series_id])
+      params.require(:story).permit(:title, :content, :prologue, :epilogue, novel_series_attributes: [:novel_series_id])
     end
 end

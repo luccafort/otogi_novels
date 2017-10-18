@@ -1,0 +1,23 @@
+p
+  strong
+    | タイトル:
+  = @novel_series.title
+h3
+  = @story.title
+
+.container
+  = form_for @novel_series, html: {class: "form-horizontal"} do |f|
+    .form-group
+      p
+        = @story.prologue
+      hr
+      p
+        = @story.content
+      hr
+      p
+        = @story.epilogue
+
+
+  = link_to '戻る', novel_series_index_path, class: 'btn btn-default'
+  br
+  = link_to '編集', edit_novel_series_path(@novel_series), class: 'btn btn-default'

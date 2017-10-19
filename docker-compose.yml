@@ -19,3 +19,8 @@ services:
       - '3000:3000'
     depends_on:
       - db
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes

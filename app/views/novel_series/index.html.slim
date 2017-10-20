@@ -14,7 +14,7 @@ table
   - @novel_series.each do |series|
     tr style="background-color:#{cycle('#ffffff', '#e0dede')}"
       td
-        = series.title
+        = link_to series.title, novel_series_stories_path(series)
       td
         = series.created_at.to_s(:published_on)
       td

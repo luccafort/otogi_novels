@@ -1,6 +1,7 @@
 h1
   | Welcome to おとぎNovels！
 p = link_to '小説を投稿する', new_novel_series_path
+p = link_to '小説一覧', novel_series_index_path
 - if account_signed_in?
   p = link_to 'ログアウト', destroy_account_session_path, method: :delete
 - else

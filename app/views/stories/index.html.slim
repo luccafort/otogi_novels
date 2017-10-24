@@ -18,4 +18,8 @@ table
         = story.created_at.to_s(:published_on)
       td
         = story.updated_at.to_s(:published_on)
+      td
+        = link_to '編集', edit_story_path(story)
+      td
+        = link_to '削除', story_path(story), method: :delete, data: {confirm: '本当に削除しますか？'}
 = link_to '新ストーリーを投稿', new_novel_series_story_path

@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails', '~> 4.3'
 
 # bootstrap-sassを導入
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.4.1'
 
 # slimを導入
 gem 'slim-rails', '~> 3.0'
